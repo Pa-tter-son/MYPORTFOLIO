@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CX Portfolio — Prince Patterson | THE/STUDIO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:    #0a0a0a;
+  --bg2:   #111111;
+  --bg3:   #1a1a1a;
+  --accent:  #e8c547;
+  --accent2: #c47a3a;
+  --text:   #f0ede6;
+  --muted:  #888880;
+  --border: rgba(255,255,255,0.08);
+  --green:  #4DBD6E;
+  --greenBg: rgba(77,189,110,0.1);
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-serif:   'DM Serif Display', serif;
+  --font-body:    'DM Sans', sans-serif;
+  --font-mono:    'JetBrains Mono', monospace;
+  --nav-h: 64px;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav.main-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  height: var(--nav-h);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 clamp(1.25rem, 5vw, 4rem);
+  background: rgba(10,10,10,0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 1.5rem; letter-spacing: 0.06em;
+  color: var(--accent); text-decoration: none;
+}
+.nav-back {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted); text-decoration: none;
+  border: 1px solid var(--border); border-radius: 100px;
+  padding: 6px 18px; transition: all 0.2s;
+}
+.nav-back:hover { border-color: var(--accent); color: var(--accent); }
+.nav-badge {
+  font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--accent); padding: 4px 14px;
+  border: 1px solid rgba(232,197,71,0.3); border-radius: 100px;
+}
+
+/* ── HERO ── */
+.cx-hero {
+  min-height: 60vh;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: calc(var(--nav-h) + 5rem) clamp(1.25rem, 5vw, 4rem) 5rem;
+  border-bottom: 1px solid var(--border);
+  position: relative; overflow: hidden;
+}
+.cx-hero-bg {
+  position: absolute; bottom: -2rem; right: -1rem;
+  font-family: var(--font-display);
+  font-size: clamp(6rem, 18vw, 18rem);
+  color: rgba(255,255,255,0.018);
+  line-height: 1; pointer-events: none; user-select: none;
+}
+.hero-eyebrow {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 1rem;
+}
+.dot-live {
+  width: 7px; height: 7px; border-radius: 50%; background: var(--green);
+  animation: livepulse 2s infinite;
+}
+@keyframes livepulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.85)} }
+.cx-hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 9vw, 9rem);
+  line-height: 0.92; letter-spacing: 0.02em;
+  color: var(--text); margin-bottom: 1.5rem;
+}
+.cx-hero h1 em {
+  font-family: var(--font-serif); font-style: italic;
+  color: var(--accent); letter-spacing: -0.01em;
+}
+.cx-hero-lead {
+  font-size: 0.95rem; color: var(--muted);
+  max-width: 540px; line-height: 1.85; font-weight: 300; margin-bottom: 2rem;
+}
+.tag-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.tag {
+  padding: 4px 14px; border: 1px solid var(--border);
+  border-radius: 100px; font-size: 0.7rem;
+  letter-spacing: 0.08em; color: var(--muted);
+  text-transform: uppercase;
+}
+
+/* ── SECTIONS ── */
+section.cx-sec {
+  padding: 5rem clamp(1.25rem, 5vw, 4rem);
+  border-bottom: 1px solid var(--border);
+}
+.section-tag {
+  font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 0.6rem;
+  display: flex; align-items: center; gap: 0.6rem;
+}
+.section-tag::before {
+  content: ''; display: block; width: 1.5rem; height: 1px;
+  background: var(--muted);
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  line-height: 1; letter-spacing: 0.03em;
+  margin-bottom: 0.4rem;
+}
+.section-title em {
+  font-family: var(--font-serif); font-style: italic; color: var(--accent);
+}
+.section-sub { font-size: 0.85rem; color: var(--muted); margin-bottom: 2.5rem; }
+
+/* ── STATS ── */
+.stats-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  border: 1px solid var(--border); border-radius: 6px;
+  overflow: hidden; background: var(--border); gap: 1px;
+}
+.stat-cell {
+  background: var(--bg2); padding: 2rem 1.5rem; text-align: center;
+}
+.stat-val {
+  font-family: var(--font-mono); font-size: 1.9rem;
+  font-weight: 700; color: var(--accent); letter-spacing: -0.03em;
+  line-height: 1;
+}
+.stat-label {
+  font-size: 0.68rem; color: var(--muted); margin-top: 5px;
+  text-transform: uppercase; letter-spacing: 0.12em; line-height: 1.4;
+}
+.stat-sub { font-size: 0.65rem; color: rgba(136,136,128,0.5); margin-top: 2px; }
+
+/* ── SCORE CARDS ── */
+.scores-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(240px,1fr)); gap: 12px;
+}
+.score-card {
+  background: var(--bg2); border: 1px solid var(--border); border-radius: 6px;
+  padding: 1.5rem; transition: border-color 0.2s, transform 0.2s; cursor: default;
+}
+.score-card:hover { border-color: rgba(232,197,71,0.35); transform: translateY(-3px); }
+.sc-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; }
+.sc-period {
+  font-size: 0.68rem; color: rgba(136,136,128,0.6);
+  letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 4px;
+}
+.sc-badge {
+  display: inline-block; font-size: 0.6rem; padding: 2px 9px;
+  border-radius: 100px; letter-spacing: 0.1em; text-transform: uppercase;
+}
+.sc-score {
+  font-family: var(--font-mono); font-size: 2.4rem;
+  font-weight: 700; line-height: 1;
+}
+.sc-score sup { font-size: 0.85rem; font-weight: 400; opacity: 0.45; }
+.sc-metrics { border-top: 1px solid var(--border); padding-top: 1rem; }
+.sc-metric { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.sc-mlabel { font-size: 0.72rem; color: var(--muted); }
+.sc-mval {
+  font-family: var(--font-mono); font-size: 0.68rem; font-weight: 600;
+  padding: 2px 8px; border-radius: 3px;
+}
+.m-good { color: var(--green); background: var(--greenBg); }
+.m-warn { color: var(--accent2); background: rgba(196,122,58,0.12); }
+.sc-note {
+  font-size: 0.68rem; color: rgba(136,136,128,0.5); margin-top: 0.9rem;
+  padding-top: 0.9rem; border-top: 1px solid var(--border);
+  font-style: italic; line-height: 1.55;
+}
+
+/* ── TEAM RANKINGS ── */
+.team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.team-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 6px; padding: 1.5rem; }
+.team-period {
+  font-size: 0.68rem; color: rgba(136,136,128,0.6);
+  letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1.2rem;
+}
+.team-row { margin-bottom: 1rem; }
+.team-row-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px; }
+.team-name-wrap { display: flex; align-items: center; gap: 8px; font-size: 0.78rem; }
+.t-rank { font-family: var(--font-mono); font-size: 0.65rem; width: 20px; }
+.you-tag {
+  font-size: 0.6rem; color: var(--accent); letter-spacing: 0.06em;
+  border: 1px solid rgba(232,197,71,0.3); border-radius: 100px; padding: 1px 6px;
+}
+.t-score { font-family: var(--font-mono); font-size: 0.82rem; font-weight: 700; }
+.bar-track { height: 2px; background: var(--bg3); border-radius: 2px; overflow: hidden; }
+.bar-fill { height: 100%; border-radius: 2px; transition: width 1.2s cubic-bezier(.4,0,.2,1); }
+
+/* ── WORKFLOW ── */
+.wf-shell {
+  display: grid; grid-template-columns: 220px 1fr;
+  border: 1px solid var(--border); border-radius: 6px;
+  overflow: hidden; background: var(--bg2);
+}
+.wf-nav { border-right: 1px solid var(--border); }
+.wf-btn {
+  display: block; width: 100%; text-align: left; padding: 12px 16px;
+  background: transparent; border: none; border-left: 2px solid transparent;
+  cursor: pointer; color: var(--muted); font-size: 0.76rem;
+  font-family: var(--font-body); line-height: 1.4; transition: all 0.15s;
+}
+.wf-btn:hover { color: var(--text); background: var(--bg3); }
+.wf-btn.active { border-left-color: var(--accent); color: var(--text); background: var(--bg3); }
+.wf-step-num {
+  font-family: var(--font-mono); font-size: 0.62rem; display: block;
+  margin-bottom: 2px; color: var(--accent); opacity: 0.7;
+}
+.wf-detail { padding: 2rem 2rem 2rem 1.8rem; }
+.wf-tools { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 1rem; }
+.wf-chip {
+  font-size: 0.65rem; padding: 3px 12px; border-radius: 100px;
+  border: 1px solid; letter-spacing: 0.08em; text-transform: uppercase;
+}
+.wf-title {
+  font-family: var(--font-serif); font-size: 1.4rem;
+  margin-bottom: 0.75rem; letter-spacing: -0.01em; font-style: italic;
+  color: var(--text);
+}
+.wf-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.9; margin-bottom: 1rem; }
+.wf-impact {
+  padding: 1rem 1.2rem; border-radius: 0 4px 4px 0;
+  border-left: 2px solid var(--accent);
+  background: rgba(232,197,71,0.04);
+}
+.wf-impact-text { font-size: 0.78rem; line-height: 1.75; color: rgba(232,197,71,0.8); }
+.wf-impact-text strong { color: var(--accent); }
+
+/* ── TOOLS ── */
+.tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px,1fr)); gap: 12px; }
+.tool-card {
+  background: var(--bg2); border: 1px solid var(--border); border-radius: 6px;
+  padding: 1.3rem; transition: all 0.2s; cursor: default;
+}
+.tool-card:hover { border-color: rgba(232,197,71,0.28); background: var(--bg3); }
+.tool-top { display: flex; align-items: center; gap: 12px; margin-bottom: 0.8rem; }
+.tool-icon {
+  width: 36px; height: 36px; border-radius: 7px;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-mono); font-size: 0.7rem; font-weight: 700; flex-shrink: 0;
+}
+.tool-name { font-size: 0.88rem; font-weight: 500; }
+.tool-cat { font-size: 0.62rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 2px; }
+.tool-desc { font-size: 0.76rem; color: var(--muted); line-height: 1.75; }
+
+/* ── FOOTER ── */
+.cx-footer {
+  padding: 3rem clamp(1.25rem, 5vw, 4rem);
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 1.5rem;
+}
+.footer-copy { font-size: 0.78rem; color: var(--muted); }
+.footer-links { display: flex; gap: 1.5rem; }
+.footer-links a {
+  font-size: 0.75rem; color: var(--muted); text-decoration: none;
+  letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--accent); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .stats-grid { grid-template-columns: repeat(2,1fr); }
+  .team-grid { grid-template-columns: 1fr; }
+  .wf-shell { grid-template-columns: 1fr; }
+  .wf-nav { border-right: none; border-bottom: 1px solid var(--border); display: flex; overflow-x: auto; }
+  .wf-btn { min-width: 130px; border-left: none; border-bottom: 2px solid transparent; }
+  .wf-btn.active { border-left-color: transparent; border-bottom-color: var(--accent); }
+}
+@media (max-width: 480px) {
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+  .cx-footer { flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="main-nav">
+  <a href="./index.html" class="nav-logo">PATTERSON</a>
+  <a href="./index.html" class="nav-back">← Back to portfolio</a>
+  <span class="nav-badge">CX Portfolio</span>
+</nav>
+
+<!-- HERO -->
+<div class="cx-hero">
+  <div class="cx-hero-bg">CX</div>
+  <div class="hero-eyebrow">
+    <span class="dot-live"></span>
+    Customer Experience Specialist — THE/STUDIO
+  </div>
+  <h1>PRINCE<br/><em>Patterson</em><br/>CX SPECIALIST</h1>
+  <p class="cx-hero-lead">
+    Remote CX specialist with 6+ years managing end-to-end order journeys on a global custom manufacturing platform.
+    Consistently team-ranked #1. Two perfect 100/100 performance scores. Zero refund or redo incidents across all tracked evaluation periods.
+  </p>
+  <div class="tag-row">
+    <span class="tag">HubSpot CRM</span>
+    <span class="tag">Intercom</span>
+    <span class="tag">Slack</span>
+    <span class="tag">OMS</span>
+    <span class="tag">Google Workspace</span>
+    <span class="tag">Custom Manufacturing</span>
+    <span class="tag">Remote · Accra, GH</span>
+  </div>
+</div>
+
+<!-- STATS -->
+<section class="cx-sec">
+  <p class="section-tag">By the numbers</p>
+  <h2 class="section-title">Key <em>Metrics</em></h2>
+  <p class="section-sub">Verified data from THE/STUDIO's internal performance tracking system across 5 evaluation periods</p>
+  <div class="stats-grid">
+    <div class="stat-cell"><div class="stat-val">95.67</div><div class="stat-label">Avg Performance Score</div><div class="stat-sub">out of 100</div></div>
+    <div class="stat-cell"><div class="stat-val">2×</div><div class="stat-label">Perfect 100/100</div><div class="stat-sub">plus a 98.87</div></div>
+    <div class="stat-cell"><div class="stat-val">0</div><div class="stat-label">CS Refund / Redo Hits</div><div class="stat-sub">across all periods</div></div>
+    <div class="stat-cell"><div class="stat-val">&lt;20s</div><div class="stat-label">Chat Response Time</div><div class="stat-sub">target: 20 seconds</div></div>
+    <div class="stat-cell"><div class="stat-val">100%</div><div class="stat-label">QC Pass Rate</div><div class="stat-sub">all 5 periods</div></div>
+    <div class="stat-cell"><div class="stat-val">#1</div><div class="stat-label">Team Ranking</div><div class="stat-sub">both compared periods</div></div>
+  </div>
+</section>
+
+<!-- SCORECARDS -->
+<section class="cx-sec">
+  <p class="section-tag">Live scorecard data</p>
+  <h2 class="section-title">Performance <em>Scorecards</em></h2>
+  <p class="section-sub">5 evaluation periods · scored by THE/STUDIO CX management</p>
+  <div class="scores-grid" id="scoresGrid"></div>
+</section>
+
+<!-- TEAM RANKINGS -->
+<section class="cx-sec">
+  <p class="section-tag">Team context</p>
+  <h2 class="section-title">Team <em>Rankings</em></h2>
+  <p class="section-sub">Ranked #1 among a 4-person CX team across both scored comparison periods</p>
+  <div class="team-grid" id="teamGrid"></div>
+</section>
+
+<!-- WORKFLOW -->
+<section class="cx-sec">
+  <p class="section-tag">How I operate</p>
+  <h2 class="section-title">Daily <em>Workflow</em></h2>
+  <p class="section-sub">End-to-end CX operations at THE/STUDIO — a global on-demand custom product manufacturing platform</p>
+  <div class="wf-shell">
+    <nav class="wf-nav" id="wfNav"></nav>
+    <div class="wf-detail" id="wfDetail"></div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section class="cx-sec">
+  <p class="section-tag">Stack</p>
+  <h2 class="section-title">Tools & <em>Platforms</em></h2>
+  <p class="section-sub">Used daily to manage the full customer experience lifecycle from first contact to post-delivery</p>
+  <div class="tools-grid" id="toolsGrid"></div>
+</section>
+
+<!-- FOOTER -->
+<footer class="cx-footer">
+  <span class="footer-copy">© Prince Patterson — CX Specialist · THE/STUDIO · Remote</span>
+  <div class="footer-links">
+    <a href="mailto:princeniipatterson@gmail.com">Email</a>
+    <a href="https://www.linkedin.com/in/prince-niikoi-patterson" target="_blank">LinkedIn</a>
+    <a href="https://github.com/Pa-tter-son" target="_blank">GitHub</a>
+    <a href="./index.html">Portfolio</a>
+  </div>
+</footer>
+
+<script>
+const SCORES = [
+  { period:"Period 01", score:86.00, badge:null, color:"#e8c547",
+    metrics:[{l:"Chat Response",v:"185%",g:true},{l:"Customer CSAT",v:"104%",g:true},{l:"Wait Time",v:"106%",g:true},{l:"Refund/Redo Hits",v:"0 hits",g:true},{l:"QC Pass Rate",v:"100%",g:true}],
+    note:"High ticket volume period — chat speed and CSAT still held above target across the board." },
+  { period:"Period 02", score:100.00, badge:"Perfect", color:"#4DBD6E",
+    metrics:[{l:"Ticket Resolution",v:"118%",g:true},{l:"Chat Response",v:"100%",g:true},{l:"Customer CSAT",v:"100%",g:true},{l:"Wait Time",v:"107%",g:true},{l:"Refund/Redo Hits",v:"0 hits",g:true}],
+    note:"All tracked KPIs at or above target. Full scorecard achievement." },
+  { period:"Period 03", score:93.50, badge:null, color:"#e8c547",
+    metrics:[{l:"Chat Response",v:"135%",g:true},{l:"Customer CSAT",v:"74%",g:false},{l:"Wait Time",v:"181%",g:true},{l:"Quality Score",v:"100%",g:true},{l:"Refund/Redo Hits",v:"0 hits",g:true}],
+    note:"Fastest response time of all periods (avg 13s). CSAT recovery actioned immediately." },
+  { period:"Period 04", score:98.87, badge:"Near-Perfect", color:"#4DBD6E",
+    metrics:[{l:"Chat Response",v:"105%",g:true},{l:"Customer CSAT",v:"95%",g:true},{l:"Wait Time",v:"152%",g:true},{l:"Quality Score",v:"100%",g:true},{l:"Refund/Redo Hits",v:"0 hits",g:true}],
+    note:"Consistent high performance across all KPIs — 0.13 points from a perfect score." },
+  { period:"Period 05", score:100.00, badge:"Perfect", color:"#4DBD6E",
+    metrics:[{l:"Chat Response",v:"130%",g:true},{l:"Customer CSAT",v:"104%",g:true},{l:"Wait Time",v:"120%",g:true},{l:"Quality Score",v:"100%",g:true},{l:"Refund/Redo Hits",v:"0 hits",g:true}],
+    note:"100% CSAT achievement and 30% faster than the chat response target." }
+];
+
+const TEAM_A = [{n:"Prince Patterson",s:86.00,you:true},{n:"Kate Evans",s:79.02},{n:"Carol Lim",s:66.00},{n:"Racheal Oguntuase",s:63.93}];
+const TEAM_B = [{n:"Prince Patterson",s:100.00,you:true},{n:"Kate Evans",s:80.00},{n:"Carol Lim",s:80.00},{n:"Racheal Oguntuase",s:68.00}];
+
+const WF = [
+  {num:"01",title:"Queue Triage & Morning Setup",tools:["Intercom","HubSpot","Slack"],color:"#e8c547",
+   desc:"Start each shift reviewing the Intercom live chat queue and scanning HubSpot for overnight ticket flags. Check Slack channels (#production-updates, #design-alerts, #cx-team) for factory notifications and shipping alerts. Prioritise the queue: VIP accounts first, then active order issues, pre-sale inquiries, and general queries.",
+   impact:"Handled 50+ weekly tickets across multiple channels while maintaining inbox zero on all priority cases."},
+  {num:"02",title:"Order Intake & Onboarding",tools:["OMS","HubSpot CRM","Intercom"],color:"#5B8DD9",
+   desc:"New customer contacts trigger an Intercom conversation, auto-logged as a HubSpot ticket. Pull order data from the OMS to verify specs: product type (patches, pins, coins, hats, apparel), quantity, design file status, and agreed production timeline. Set accurate delivery expectations upfront and create full contact records in the CRM.",
+   impact:"Managed 100+ concurrent active orders at peak while ensuring every customer had a clear, accurate order timeline."},
+  {num:"03",title:"Design Proof Coordination",tools:["Slack","OMS","Intercom"],color:"#9B6DE5",
+   desc:"The design team notifies CX via Slack (#design-approvals) when proofs are ready. CX contacts customers through Intercom chat or HubSpot email to present the proof, collect approval, or relay revision requests. Approved proofs are confirmed in the OMS to release to production. All revision notes are documented and relayed back to Design via Slack thread.",
+   impact:"Zero proof-to-production errors by maintaining clear Slack-to-OMS documentation on every single order."},
+  {num:"04",title:"Production Monitoring & Updates",tools:["OMS","Slack","HubSpot"],color:"#4DBD6E",
+   desc:"Monitor OMS daily for production status transitions: Proof Approved → In Production → QC Review → Ready to Ship. Identify orders approaching their delivery window and proactively contact customers before they reach out. Flag overdue or held orders to the production team via Slack and escalate to CX lead if unresolved within SLA.",
+   impact:"Proactive outreach contributed to a 30% drop in reactive inbound contact rate across the team."},
+  {num:"05",title:"Shipping Handoff & Tracking",tools:["OMS","HubSpot","Intercom"],color:"#e8c547",
+   desc:"When the shipping team uploads tracking numbers to the OMS, CX sends personalised tracking updates via Intercom or HubSpot email templates. Monitor delivery status for high-value and VIP orders. Coordinate with the shipping team on Slack for last-mile exceptions: address changes, held packages, customs delays, and replacements.",
+   impact:"Maintained sub-5-minute response on all shipping queries and resolved every delivery exception within SLA."},
+  {num:"06",title:"Issue Resolution & De-escalation",tools:["OMS","HubSpot CRM","Slack"],color:"#D95B5B",
+   desc:"Classify the issue using OMS order history: production defect, design error, shipping damage, or delay. Pull all documentation (proof approvals, production photos, tracking events) before contacting the customer. Lead with de-escalation: acknowledge, empathise, resolve. Determine the resolution path — redo, refund, store credit, or re-ship — and document everything in HubSpot.",
+   impact:"0 CS Redo/Refund Hits across all tracked periods, reflecting strong first-contact resolution."},
+  {num:"07",title:"VIP Account Management",tools:["HubSpot CRM","Intercom","Slack"],color:"#e8c547",
+   desc:"VIP accounts are tagged in HubSpot and flagged in Intercom for priority routing. These customers receive proactive check-ins, dedicated order monitoring, and first-access to design consultations. Maintain detailed relationship notes in CRM, track reorder cycles, and coordinate directly with production leads via Slack to ensure VIP orders never miss a deadline.",
+   impact:"Managed enterprise and repeat VIP clients, contributing to 90%+ customer retention across all personally managed accounts."}
+];
+
+const TOOLS = [
+  {name:"Intercom",cat:"Live Chat & Tickets",color:"#0080FF",desc:"Primary customer-facing chat platform. Managed live chat queue, ticket routing, priority tags for VIP accounts, and automated follow-up sequences."},
+  {name:"HubSpot",cat:"CRM & Ticketing",color:"#FF6B35",desc:"Central CRM for all customer records, full ticket lifecycle management, email outreach, and escalation tracking across every order touchpoint."},
+  {name:"Slack",cat:"Internal Comms",color:"#9B6DE5",desc:"Cross-team coordination hub: design proof approvals, production status alerts, shipping notifications, escalation threads, and CX team handoffs."},
+  {name:"OMS",cat:"Order Management",color:"#4DBD6E",desc:"Real-time order tracking across the full lifecycle — from design proof approval through factory production, QC review, and final shipment."},
+  {name:"Google Workspace",cat:"Productivity Suite",color:"#4285F4",desc:"Docs for SOPs and runbooks, Sheets for ticket tracking and reporting, Gmail for escalated and formal customer correspondence."},
+  {name:"CRM",cat:"Customer Data",color:"#e8c547",desc:"Full customer history, purchase records, communication logs, and VIP flags to personalise every interaction and anticipate customer needs."}
+];
+
+// Render scorecards
+document.getElementById('scoresGrid').innerHTML = SCORES.map(s => {
+  const whole = Math.floor(s.score), dec = s.score.toFixed(2).split('.')[1];
+  const badge = s.badge ? `<span class="sc-badge" style="background:${s.badge==='Perfect'?'rgba(77,189,110,.12)':'rgba(232,197,71,.1)'};color:${s.badge==='Perfect'?'#4DBD6E':'#e8c547'}">${s.badge}</span>` : '';
+  return `<div class="score-card">
+    <div class="sc-top">
+      <div><div class="sc-period">${s.period}</div>${badge}</div>
+      <div class="sc-score" style="color:${s.color}">${whole}<sup>.${dec}</sup></div>
+    </div>
+    <div class="sc-metrics">${s.metrics.map(m=>`<div class="sc-metric"><span class="sc-mlabel">${m.l}</span><span class="sc-mval ${m.g?'m-good':'m-warn'}">${m.v}</span></div>`).join('')}</div>
+    <p class="sc-note">${s.note}</p>
+  </div>`;
+}).join('');
+
+// Render team rankings
+function buildTeam(data, label) {
+  const sorted = [...data].sort((a,b)=>b.s-a.s);
+  const max = Math.max(...data.map(d=>d.s));
+  return `<div class="team-card">
+    <div class="team-period">${label}</div>
+    ${sorted.map((m,i)=>`<div class="team-row">
+      <div class="team-row-top">
+        <div class="team-name-wrap">
+          <span class="t-rank" style="color:${i===0?'#e8c547':'rgba(136,136,128,.4)'}">#${i+1}</span>
+          <span style="${m.you?'color:var(--text);font-weight:500':''}">${m.n}</span>
+          ${m.you?'<span class="you-tag">you</span>':''}
+        </div>
+        <span class="t-score" style="color:${m.you?'#4DBD6E':i===0?'#e8c547':'var(--muted)'}">${m.s.toFixed(0)}</span>
+      </div>
+      <div class="bar-track"><div class="bar-fill" style="width:0%;background:${m.you?'linear-gradient(90deg,#c47a3a,#e8c547)':'rgba(255,255,255,0.06)'}" data-w="${(m.s/max)*100}"></div></div>
+    </div>`).join('')}
+  </div>`;
+}
+document.getElementById('teamGrid').innerHTML = buildTeam(TEAM_A,'Comparison Period A') + buildTeam(TEAM_B,'Comparison Period B');
+setTimeout(()=>{ document.querySelectorAll('.bar-fill').forEach(b=>{ b.style.width = b.dataset.w+'%'; }); }, 150);
+
+// Render workflow
+let activeWf = 0;
+function renderWfNav() {
+  document.getElementById('wfNav').innerHTML = WF.map((s,i)=>`
+    <button class="wf-btn${i===0?' active':''}" onclick="setWf(${i})">
+      <span class="wf-step-num">${s.num}</span>${s.title}
+    </button>`).join('');
+}
+function renderWfDetail(idx) {
+  const s = WF[idx];
+  document.getElementById('wfDetail').innerHTML = `
+    <div class="wf-tools">${s.tools.map(t=>`<span class="wf-chip" style="border-color:${s.color}50;color:${s.color}">${t}</span>`).join('')}</div>
+    <div class="wf-title">${s.title}</div>
+    <p class="wf-desc">${s.desc}</p>
+    <div class="wf-impact"><p class="wf-impact-text"><strong>Impact —</strong> ${s.impact}</p></div>`;
+}
+function setWf(idx) {
+  activeWf = idx;
+  document.querySelectorAll('.wf-btn').forEach((b,i)=>b.classList.toggle('active',i===idx));
+  renderWfDetail(idx);
+}
+renderWfNav(); renderWfDetail(0);
+
+// Render tools
+document.getElementById('toolsGrid').innerHTML = TOOLS.map(t=>`
+  <div class="tool-card">
+    <div class="tool-top">
+      <div class="tool-icon" style="background:${t.color}18;border:1px solid ${t.color}30;color:${t.color}">${t.name.replace(/\W/g,'').substring(0,2).toUpperCase()}</div>
+      <div><div class="tool-name">${t.name}</div><div class="tool-cat">${t.cat}</div></div>
+    </div>
+    <p class="tool-desc">${t.desc}</p>
+  </div>`).join('');
+</script>
+</body>
+</html>
