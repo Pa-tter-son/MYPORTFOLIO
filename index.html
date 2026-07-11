@@ -423,51 +423,35 @@ section {
 }
 .thumb-art > * { position: relative; z-index: 1; }
 
-/* KasaFrames — site theme */
-.thumb-kasa {
-  background:
-    linear-gradient(160deg, rgba(15,13,11,0.92) 0%, rgba(26,22,18,0.88) 45%, rgba(10,9,8,0.95) 100%),
-    radial-gradient(ellipse 80% 60% at 70% 40%, rgba(196,169,110,0.18) 0%, transparent 60%),
-    radial-gradient(ellipse 50% 40% at 20% 80%, rgba(139,109,76,0.12) 0%, transparent 55%);
-  align-items: flex-start;
-  justify-content: space-between;
-  text-align: left;
+/* KasaFrames — photo from site (Wooden Glossy + Ring) */
+.project-thumb--kasa img {
+  object-position: center 40%;
+}
+.thumb-photo-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(8,7,6,0.9) 0%, rgba(8,7,6,0.35) 42%, rgba(8,7,6,0.05) 68%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: clamp(0.85rem, 2.5vw, 1.15rem);
+  pointer-events: none;
 }
 .thumb-kasa-eyebrow {
   font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase;
-  color: #C4A574; font-weight: 500;
-}
-.thumb-kasa-wall {
-  flex: 1; width: 100%;
-  display: flex; align-items: center; justify-content: center;
-  gap: clamp(6px, 1.5vw, 12px);
-  padding: 0.5rem 0;
-}
-.thumb-kasa-frame {
-  border: 2px solid rgba(196,169,110,0.55);
-  background: linear-gradient(180deg, rgba(30,26,22,0.9) 0%, rgba(18,16,14,0.95) 100%);
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.04), 0 8px 24px rgba(0,0,0,0.45);
-  border-radius: 1px;
-}
-.thumb-kasa-frame.f1 { width: 28%; aspect-ratio: 3/4; }
-.thumb-kasa-frame.f2 { width: 34%; aspect-ratio: 4/5; border-color: rgba(196,169,110,0.75); }
-.thumb-kasa-frame.f3 { width: 24%; aspect-ratio: 1/1; }
-.thumb-kasa-frame-inner {
-  width: 72%; height: 72%; margin: 14% auto;
-  background: linear-gradient(135deg, rgba(196,169,110,0.08) 0%, rgba(80,65,48,0.15) 100%);
-  border-radius: 1px;
+  color: #C4A574; font-weight: 500; margin-bottom: 0.35rem;
 }
 .thumb-kasa-brand {
   font-family: var(--font-body);
-  font-size: clamp(1.1rem, 3vw, 1.45rem);
+  font-size: clamp(1rem, 2.8vw, 1.35rem);
   font-weight: 500; letter-spacing: 0.02em;
   line-height: 1;
 }
 .thumb-kasa-brand .kasa { color: #F5F0E8; }
 .thumb-kasa-brand .frames { color: #C4A574; }
 .thumb-kasa-tagline {
-  font-size: 0.62rem; color: rgba(245,240,232,0.45);
-  letter-spacing: 0.06em; margin-top: 4px; max-width: 220px; line-height: 1.45;
+  font-size: 0.62rem; color: rgba(245,240,232,0.5);
+  letter-spacing: 0.05em; margin-top: 4px; line-height: 1.4;
 }
 
 /* Music poster */
@@ -528,9 +512,9 @@ section {
 .thumb-cx-icon-row img,
 .thumb-cx-icon-row svg { width: 18px; height: 18px; opacity: 0.9; flex-shrink: 0; display: block; }
 
-.project-card:hover .thumb-kasa-frame { border-color: rgba(196,169,110,0.85); transition: border-color 0.3s; }
 .project-card:hover .thumb-music-icon { transform: scale(1.06); transition: transform 0.35s ease; }
 .project-card:hover .thumb-hlc-icon { transform: translateY(-3px); transition: transform 0.35s ease; }
+.project-card:hover .project-thumb--kasa img { transform: scale(1.06); }
 
 .project-thumb-placeholder {
   width: 100%; height: 100%;
@@ -888,18 +872,20 @@ footer a { color: var(--accent); text-decoration: none; }
 
     <!-- KasaFrames FEATURED -->
     <a href="https://kasa-frames-wczr.vercel.app/" target="_blank" rel="noopener" class="project-card half">
-      <div class="project-thumb">
-        <div class="thumb-art thumb-kasa">
-          <span class="thumb-kasa-eyebrow">Accra · Luxury wall aesthetics</span>
-          <div class="thumb-kasa-wall" aria-hidden="true">
-            <div class="thumb-kasa-frame f1"><div class="thumb-kasa-frame-inner"></div></div>
-            <div class="thumb-kasa-frame f2"><div class="thumb-kasa-frame-inner"></div></div>
-            <div class="thumb-kasa-frame f3"><div class="thumb-kasa-frame-inner"></div></div>
-          </div>
-          <div>
-            <div class="thumb-kasa-brand"><span class="kasa">Kasa</span><span class="frames">Frames</span></div>
-            <p class="thumb-kasa-tagline">Luxury wall aesthetics for modern spaces.</p>
-          </div>
+      <div class="project-thumb project-thumb--kasa">
+        <img
+          src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1200&q=80"
+          srcset="
+            https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=640&q=80 640w,
+            https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1200&q=80 1200w"
+          sizes="(max-width: 900px) 100vw, 50vw"
+          alt="KasaFrames Wooden Glossy + Ring — warm luxury interior with curated wall aesthetics"
+          loading="lazy"
+        />
+        <div class="thumb-photo-overlay">
+          <span class="thumb-kasa-eyebrow">Wooden Glossy + Ring</span>
+          <div class="thumb-kasa-brand"><span class="kasa">Kasa</span><span class="frames">Frames</span></div>
+          <p class="thumb-kasa-tagline">Warm everyday luxury · sculptural ring detail</p>
         </div>
         <span class="project-badge wip">In Progress</span>
       </div>
