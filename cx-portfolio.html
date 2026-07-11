@@ -6,6 +6,7 @@
 <title>CX Portfolio — Prince Patterson | THE/STUDIO</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://svgl.app" />
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -113,7 +114,10 @@ nav.main-nav {
   border-radius: 100px; font-size: 0.7rem;
   letter-spacing: 0.08em; color: var(--muted);
   text-transform: uppercase;
+  display: inline-flex; align-items: center; gap: 6px;
 }
+.tag img { width: 14px; height: 14px; object-fit: contain; display: block; }
+.tag svg { width: 14px; height: 14px; display: block; flex-shrink: 0; }
 
 /* ── SECTIONS ── */
 section.cx-sec {
@@ -257,7 +261,7 @@ section.cx-sec {
 .wf-impact-text strong { color: var(--accent); }
 
 /* ── TOOLS ── */
-.tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px,1fr)); gap: 12px; }
+.tools-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
 .tool-card {
   background: var(--bg2); border: 1px solid var(--border); border-radius: 6px;
   padding: 1.3rem; transition: all 0.2s; cursor: default;
@@ -284,13 +288,18 @@ section.cx-sec {
 .footer-links a {
   font-size: 0.75rem; color: var(--muted); text-decoration: none;
   letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s;
+  display: inline-flex; align-items: center; gap: 6px;
 }
 .footer-links a:hover { color: var(--accent); }
+.tool-icon img { width: 22px; height: 22px; object-fit: contain; display: block; }
+.tool-icon svg { width: 22px; height: 22px; display: block; }
+.footer-links img { width: 16px; height: 16px; object-fit: contain; display: block; }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
   .stats-grid { grid-template-columns: repeat(2,1fr); }
   .team-grid { grid-template-columns: 1fr; }
+  .tools-grid { grid-template-columns: repeat(2, 1fr); }
   .wf-shell { grid-template-columns: 1fr; }
   .wf-nav { border-right: none; border-bottom: 1px solid var(--border); display: flex; overflow-x: auto; }
   .wf-btn { min-width: 130px; border-left: none; border-bottom: 2px solid transparent; }
@@ -298,6 +307,7 @@ section.cx-sec {
 }
 @media (max-width: 480px) {
   .stats-grid { grid-template-columns: 1fr 1fr; }
+  .tools-grid { grid-template-columns: 1fr; }
   .cx-footer { flex-direction: column; align-items: flex-start; }
 }
 </style>
@@ -323,15 +333,7 @@ section.cx-sec {
     Remote CX specialist with 6+ years managing end-to-end order journeys on a global custom manufacturing platform.
     Consistently team-ranked #1. Two perfect 100/100 performance scores. Zero refund or redo incidents across all tracked evaluation periods.
   </p>
-  <div class="tag-row">
-    <span class="tag">HubSpot CRM</span>
-    <span class="tag">Intercom</span>
-    <span class="tag">Slack</span>
-    <span class="tag">OMS</span>
-    <span class="tag">Google Workspace</span>
-    <span class="tag">Custom Manufacturing</span>
-    <span class="tag">Remote · Accra, GH</span>
-  </div>
+  <div class="tag-row" id="heroTags"></div>
 </div>
 
 <!-- STATS -->
@@ -388,9 +390,9 @@ section.cx-sec {
 <footer class="cx-footer">
   <span class="footer-copy">© Prince Patterson — CX Specialist · THE/STUDIO · Remote</span>
   <div class="footer-links">
-    <a href="mailto:princeniipatterson@gmail.com">Email</a>
-    <a href="https://www.linkedin.com/in/prince-niikoi-patterson" target="_blank">LinkedIn</a>
-    <a href="https://github.com/Pa-tter-son" target="_blank">GitHub</a>
+    <a href="mailto:princeniipatterson@gmail.com"><img src="https://svgl.app/library/gmail.svg" alt="" loading="lazy" />Email</a>
+    <a href="https://www.linkedin.com/in/prince-niikoi-patterson" target="_blank" rel="noopener"><img src="https://svgl.app/library/linkedin.svg" alt="" loading="lazy" />LinkedIn</a>
+    <a href="https://github.com/Pa-tter-son" target="_blank" rel="noopener"><img src="https://svgl.app/library/github_dark.svg" alt="" loading="lazy" />GitHub</a>
     <a href="./index.html">Portfolio</a>
   </div>
 </footer>
@@ -442,13 +444,17 @@ const WF = [
 ];
 
 const TOOLS = [
-  {name:"Intercom",cat:"Live Chat & Tickets",color:"#0080FF",desc:"Primary customer-facing chat platform. Managed live chat queue, ticket routing, priority tags for VIP accounts, and automated follow-up sequences."},
-  {name:"HubSpot",cat:"CRM & Ticketing",color:"#FF6B35",desc:"Central CRM for all customer records, full ticket lifecycle management, email outreach, and escalation tracking across every order touchpoint."},
-  {name:"Slack",cat:"Internal Comms",color:"#9B6DE5",desc:"Cross-team coordination hub: design proof approvals, production status alerts, shipping notifications, escalation threads, and CX team handoffs."},
-  {name:"OMS",cat:"Order Management",color:"#4DBD6E",desc:"Real-time order tracking across the full lifecycle — from design proof approval through factory production, QC review, and final shipment."},
-  {name:"Google Workspace",cat:"Productivity Suite",color:"#4285F4",desc:"Docs for SOPs and runbooks, Sheets for ticket tracking and reporting, Gmail for escalated and formal customer correspondence."},
-  {name:"CRM",cat:"Customer Data",color:"#e8c547",desc:"Full customer history, purchase records, communication logs, and VIP flags to personalise every interaction and anticipate customer needs."}
+  {name:"Slack",cat:"Internal Comms",color:"#9B6DE5",icon:'<img src="https://svgl.app/library/slack.svg" alt="" loading="lazy" />',desc:"Cross-team coordination hub: design proof approvals, production status alerts, shipping notifications, escalation threads, and CX team handoffs."},
+  {name:"HubSpot",cat:"CRM & Ticketing",color:"#FF6B35",icon:'<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="#FF7A59" d="M18.164 7.93V5.084a2.198 2.198 0 001.267-1.978 2.21 2.21 0 00-4.419 0c0 .907.548 1.685 1.328 2.018v2.865a5.564 5.564 0 00-2.663 1.285L7.792 5.284a3.314 3.314 0 001.222-2.555 3.313 3.313 0 10-3.314 3.313c0 .376.062.737.177 1.073L9.02 10.2a5.572 5.572 0 00-1.996 3.776v5.675a2.205 2.205 0 001.328 2.017 2.205 2.205 0 001.328-3.793v-4.897c0-.985.507-1.853 1.272-2.356l2.133 2.072a5.575 5.575 0 002.222-.378v-2.865a2.203 2.203 0 001.329-2.018 2.21 2.21 0 00-2.211-2.224 2.21 2.21 0 00-2.208 2.224z"/></svg>',desc:"Central CRM for all customer records, full ticket lifecycle management, email outreach, and escalation tracking across every order touchpoint."},
+  {name:"Intercom",cat:"Live Chat & Tickets",color:"#0080FF",icon:'<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="#0080FF" d="M12 2C6.477 2 2 6.26 2 11.588c0 2.774 1.16 5.254 3 7.078V22l3.157-1.735c.885.247 1.822.38 2.843.38 5.523 0 10-4.26 10-9.588C22 6.26 17.523 2 12 2zm0 16.094c-.966 0-1.902-.118-2.771-.337l-.497-.117-.504.278-1.593.877v-2.044l-.238-.168C4.614 14.762 3.5 13.278 3.5 11.588 3.5 7.337 7.282 3.906 12 3.906S20.5 7.337 20.5 11.588 16.718 18.094 12 18.094z"/></svg>',desc:"Primary customer-facing chat platform. Managed live chat queue, ticket routing, priority tags for VIP accounts, and automated follow-up sequences."},
+  {name:"OMS",cat:"Order Management",color:"#4DBD6E",icon:'<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="#4DBD6E" d="M4 4h16v2H4V4zm0 4h10v2H4V8zm0 4h14v2H4v-2zm0 4h10v2H4v-2z"/></svg>',desc:"Real-time order tracking across the full lifecycle — from design proof approval through factory production, QC review, and final shipment."},
+  {name:"CRM",cat:"Customer Data",color:"#e8c547",icon:'<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path fill="#e8c547" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>',desc:"Full customer history, purchase records, communication logs, and VIP flags to personalise every interaction and anticipate customer needs."},
+  {name:"Google Workspace",cat:"Productivity Suite",color:"#4285F4",icon:'<img src="https://svgl.app/library/google.svg" alt="" loading="lazy" />',desc:"Docs for SOPs and runbooks, Sheets for ticket tracking and reporting, Gmail for escalated and formal customer correspondence."}
 ];
+
+document.getElementById('heroTags').innerHTML =
+  TOOLS.map(t => `<span class="tag">${t.icon}${t.name}</span>`).join('') +
+  `<span class="tag">Custom Manufacturing</span><span class="tag">Remote · Accra, GH</span>`;
 
 // Render scorecards
 document.getElementById('scoresGrid').innerHTML = SCORES.map(s => {
@@ -513,7 +519,7 @@ renderWfNav(); renderWfDetail(0);
 document.getElementById('toolsGrid').innerHTML = TOOLS.map(t=>`
   <div class="tool-card">
     <div class="tool-top">
-      <div class="tool-icon" style="background:${t.color}18;border:1px solid ${t.color}30;color:${t.color}">${t.name.replace(/\W/g,'').substring(0,2).toUpperCase()}</div>
+      <div class="tool-icon" style="background:${t.color}18;border:1px solid ${t.color}30">${t.icon}</div>
       <div><div class="tool-name">${t.name}</div><div class="tool-cat">${t.cat}</div></div>
     </div>
     <p class="tool-desc">${t.desc}</p>
