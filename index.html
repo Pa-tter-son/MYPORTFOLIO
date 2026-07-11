@@ -407,6 +407,131 @@ section {
   transition: transform 0.4s;
 }
 .project-card:hover .project-thumb img { transform: scale(1.05); }
+
+/* ── Project thumb art ── */
+.thumb-art {
+  width: 100%; height: 100%;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+  padding: 1.25rem;
+}
+.thumb-art::before {
+  content: '';
+  position: absolute; inset: 0;
+  pointer-events: none;
+}
+.thumb-art > * { position: relative; z-index: 1; }
+
+/* KasaFrames — site theme */
+.thumb-kasa {
+  background:
+    linear-gradient(160deg, rgba(15,13,11,0.92) 0%, rgba(26,22,18,0.88) 45%, rgba(10,9,8,0.95) 100%),
+    radial-gradient(ellipse 80% 60% at 70% 40%, rgba(196,169,110,0.18) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 20% 80%, rgba(139,109,76,0.12) 0%, transparent 55%);
+  align-items: flex-start;
+  justify-content: space-between;
+  text-align: left;
+}
+.thumb-kasa-eyebrow {
+  font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: #C4A574; font-weight: 500;
+}
+.thumb-kasa-wall {
+  flex: 1; width: 100%;
+  display: flex; align-items: center; justify-content: center;
+  gap: clamp(6px, 1.5vw, 12px);
+  padding: 0.5rem 0;
+}
+.thumb-kasa-frame {
+  border: 2px solid rgba(196,169,110,0.55);
+  background: linear-gradient(180deg, rgba(30,26,22,0.9) 0%, rgba(18,16,14,0.95) 100%);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.04), 0 8px 24px rgba(0,0,0,0.45);
+  border-radius: 1px;
+}
+.thumb-kasa-frame.f1 { width: 28%; aspect-ratio: 3/4; }
+.thumb-kasa-frame.f2 { width: 34%; aspect-ratio: 4/5; border-color: rgba(196,169,110,0.75); }
+.thumb-kasa-frame.f3 { width: 24%; aspect-ratio: 1/1; }
+.thumb-kasa-frame-inner {
+  width: 72%; height: 72%; margin: 14% auto;
+  background: linear-gradient(135deg, rgba(196,169,110,0.08) 0%, rgba(80,65,48,0.15) 100%);
+  border-radius: 1px;
+}
+.thumb-kasa-brand {
+  font-family: var(--font-body);
+  font-size: clamp(1.1rem, 3vw, 1.45rem);
+  font-weight: 500; letter-spacing: 0.02em;
+  line-height: 1;
+}
+.thumb-kasa-brand .kasa { color: #F5F0E8; }
+.thumb-kasa-brand .frames { color: #C4A574; }
+.thumb-kasa-tagline {
+  font-size: 0.62rem; color: rgba(245,240,232,0.45);
+  letter-spacing: 0.06em; margin-top: 4px; max-width: 220px; line-height: 1.45;
+}
+
+/* Music poster */
+.thumb-music {
+  background:
+    linear-gradient(145deg, #1a0a2e 0%, #3d1254 35%, #7c2d6a 65%, #c44b2a 100%);
+}
+.thumb-music::before {
+  background:
+    radial-gradient(circle at 30% 70%, rgba(255,200,80,0.15) 0%, transparent 45%),
+    radial-gradient(circle at 80% 20%, rgba(255,100,150,0.12) 0%, transparent 40%);
+}
+.thumb-music-icon {
+  width: clamp(56px, 14vw, 80px); height: clamp(56px, 14vw, 80px);
+  color: rgba(255,255,255,0.92);
+  filter: drop-shadow(0 4px 20px rgba(0,0,0,0.35));
+}
+.thumb-music-label {
+  margin-top: 0.75rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  letter-spacing: 0.12em; color: #fff;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.3);
+}
+.thumb-music-sub {
+  font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); margin-top: 4px;
+}
+
+/* HLC Church */
+.thumb-hlc {
+  background:
+    linear-gradient(160deg, #0d1528 0%, #152040 40%, #1a1848 70%, #0f1220 100%);
+}
+.thumb-hlc::before {
+  background: radial-gradient(ellipse 60% 50% at 50% 30%, rgba(120,160,255,0.12) 0%, transparent 60%);
+}
+.thumb-hlc-icon {
+  width: clamp(48px, 12vw, 64px); height: clamp(48px, 12vw, 64px);
+  color: rgba(255,255,255,0.9);
+  filter: drop-shadow(0 4px 16px rgba(80,120,255,0.25));
+}
+.thumb-hlc-label {
+  margin-top: 0.85rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 4.5vw, 2.2rem);
+  letter-spacing: 0.14em; color: #fff;
+}
+.thumb-hlc-sub {
+  font-size: 0.65rem; letter-spacing: 0.16em; text-transform: uppercase;
+  color: rgba(180,200,255,0.55); margin-top: 5px;
+}
+
+/* CX case study */
+.thumb-cx-icon-row {
+  display: flex; gap: 6px; margin-bottom: 0.5rem;
+}
+.thumb-cx-icon-row img,
+.thumb-cx-icon-row svg { width: 18px; height: 18px; opacity: 0.9; flex-shrink: 0; display: block; }
+
+.project-card:hover .thumb-kasa-frame { border-color: rgba(196,169,110,0.85); transition: border-color 0.3s; }
+.project-card:hover .thumb-music-icon { transform: scale(1.06); transition: transform 0.35s ease; }
+.project-card:hover .thumb-hlc-icon { transform: translateY(-3px); transition: transform 0.35s ease; }
+
 .project-thumb-placeholder {
   width: 100%; height: 100%;
   display: flex; align-items: center; justify-content: center;
@@ -763,14 +888,25 @@ footer a { color: var(--accent); text-decoration: none; }
 
     <!-- KasaFrames FEATURED -->
     <a href="https://kasa-frames-wczr.vercel.app/" target="_blank" rel="noopener" class="project-card half">
-      <div class="project-thumb" style="background:linear-gradient(135deg,#1a1209 0%,#2d1f06 50%,#1a1209 100%);">
-        <div class="project-thumb-placeholder" style="color:rgba(232,197,71,0.14);">KF</div>
+      <div class="project-thumb">
+        <div class="thumb-art thumb-kasa">
+          <span class="thumb-kasa-eyebrow">Accra · Luxury wall aesthetics</span>
+          <div class="thumb-kasa-wall" aria-hidden="true">
+            <div class="thumb-kasa-frame f1"><div class="thumb-kasa-frame-inner"></div></div>
+            <div class="thumb-kasa-frame f2"><div class="thumb-kasa-frame-inner"></div></div>
+            <div class="thumb-kasa-frame f3"><div class="thumb-kasa-frame-inner"></div></div>
+          </div>
+          <div>
+            <div class="thumb-kasa-brand"><span class="kasa">Kasa</span><span class="frames">Frames</span></div>
+            <p class="thumb-kasa-tagline">Luxury wall aesthetics for modern spaces.</p>
+          </div>
+        </div>
         <span class="project-badge wip">In Progress</span>
       </div>
       <div class="project-body">
         <p class="project-number">01 — Featured Project</p>
         <h3 class="project-title">KasaFrames</h3>
-        <p class="project-desc">A passion project currently under active development. KasaFrames is a creative web experience built to bring local design sensibility and storytelling into a modern digital platform.</p>
+        <p class="project-desc">Luxury wall aesthetics for modern Accra spaces — curated frame compositions, collections, and a full consultation experience built as a premium web platform.</p>
         <div class="project-footer">
           <div class="project-stack">
             <span class="stack-chip"><img class="stack-icon" src="https://svgl.app/library/html5.svg" alt="" loading="lazy" />HTML</span>
@@ -785,7 +921,14 @@ footer a { color: var(--accent); text-decoration: none; }
     <!-- Music Poster -->
     <a href="#" class="project-card half">
       <div class="project-thumb">
-        <img src="https://chale-mabr3.vercel.app/Images/portfolio-3.png" alt="Music Event Poster" loading="lazy" />
+        <div class="thumb-art thumb-music">
+          <svg class="thumb-music-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+            <circle cx="32" cy="32" r="28" stroke="currentColor" stroke-width="1.2" opacity="0.2"/>
+            <path d="M42 16v24.5a5 5 0 1 1-3.5-4.77V22L24 26v14.5a5 5 0 1 1-3.5-4.77V16h21.5z" fill="currentColor"/>
+          </svg>
+          <span class="thumb-music-label">LIVE</span>
+          <span class="thumb-music-sub">Music Event · Poster Design</span>
+        </div>
         <span class="project-badge">Design</span>
       </div>
       <div class="project-body">
@@ -805,7 +948,16 @@ footer a { color: var(--accent); text-decoration: none; }
     <!-- HLC Church -->
     <a href="#" class="project-card full">
       <div class="project-thumb">
-        <img src="https://chale-mabr3.vercel.app/Images/portfolio-2.png" alt="HLC Global Page" loading="lazy" />
+        <div class="thumb-art thumb-hlc">
+          <svg class="thumb-hlc-icon" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+            <path d="M32 8L12 28h6v24h28V28h6L32 8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" fill="rgba(255,255,255,0.06)"/>
+            <rect x="26" y="36" width="12" height="16" rx="1" fill="currentColor" opacity="0.9"/>
+            <path d="M32 14v8M28 18h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.6"/>
+            <circle cx="32" cy="4" r="2" fill="#C4A574"/>
+          </svg>
+          <span class="thumb-hlc-label">HLC GLOBAL</span>
+          <span class="thumb-hlc-sub">Church Website · UI Design</span>
+        </div>
         <span class="project-badge">Design</span>
       </div>
       <div class="project-body">
@@ -826,6 +978,12 @@ footer a { color: var(--accent); text-decoration: none; }
     <!-- CX Portfolio -->
     <a href="./cx-portfolio.html" class="project-card full">
       <div class="project-thumb cx-preview">
+        <div class="thumb-cx-icon-row" aria-hidden="true">
+          <img src="https://svgl.app/library/slack.svg" alt="" loading="lazy" />
+          <svg viewBox="0 0 24 24"><path fill="#0080FF" d="M12 2C6.477 2 2 6.26 2 11.588c0 2.774 1.16 5.254 3 7.078V22l3.157-1.735c.885.247 1.822.38 2.843.38 5.523 0 10-4.26 10-9.588C22 6.26 17.523 2 12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path fill="#FF7A59" d="M18.164 7.93V5.084a2.198 2.198 0 001.267-1.978 2.21 2.21 0 00-4.419 0c0 .907.548 1.685 1.328 2.018v2.865a5.564 5.564 0 00-2.663 1.285L7.792 5.284a3.314 3.314 0 001.222-2.555 3.313 3.313 0 10-3.314 3.313c0 .376.062.737.177 1.073L9.02 10.2a5.572 5.572 0 00-1.996 3.776v5.675a2.205 2.205 0 001.328 2.017 2.205 2.205 0 001.328-3.793v-4.897c0-.985.507-1.853 1.272-2.356l2.133 2.072a5.575 5.575 0 002.222-.378v-2.865a2.203 2.203 0 001.329-2.018 2.21 2.21 0 00-2.211-2.224 2.21 2.21 0 00-2.208 2.224z"/></svg>
+          <svg viewBox="0 0 24 24"><path fill="#4DBD6E" d="M12 1a8 8 0 0 1 8 8v4.5a2.5 2.5 0 0 1-2.5 2.5H14v2.5h3v2h-8v-2h3V16H6.5A2.5 2.5 0 0 1 4 13.5V9a8 8 0 0 1 8-8zm0 2a6 6 0 0 0-6 6v4.5a.5.5 0 0 0 .5.5H18a.5.5 0 0 0 .5-.5V9a6 6 0 0 0-6-6z"/></svg>
+        </div>
         <div class="cx-stat-main">
           <span class="cx-stat-num">95.67</span>
           <span class="cx-stat-label">avg score / 100</span>
